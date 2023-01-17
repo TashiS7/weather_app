@@ -1,6 +1,7 @@
 import express from "express";
 import axios from "axios"
-
+import * as dotenv from 'dotenv'
+dotenv.config();
 const app = express()
 
 app.use(function (req, res, next) {
@@ -9,7 +10,7 @@ app.use(function (req, res, next) {
     next()
 })
 
-const apiKey = "b3b31825d1f0afdd6f572372a721e033"
+const apiKey = process.env.API_Key;
 
 app.get("/weather/:location", async (req, res) => {
     try {
